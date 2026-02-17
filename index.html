@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For My Pippo ❤️</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .page {
+      display: none;
+      padding: 25px;
+      max-width: 750px;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    p {
+      color: #ffffff;
+      font-size: 20px;
+      line-height: 1.7;
+    }
+
+    button {
+      margin: 10px;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 25px;
+      background-color: #ffffff;
+      color: #e75480;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    img {
+      max-width: 90%;
+      border-radius: 20px;
+      margin-top: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Page 1 -->
+  <div class="page active">
+    <p>
+      Heyyy my Pippo 🐣❤️ <br><br>
+      This is not a normal website. <br>
+      It’s a tiny world I made… <br>
+      just for you 💖
+    </p>
+    <button onclick="nextPage()">Enter my heart 💗</button>
+  </div>
+
+  <!-- Page 2 -->
+  <div class="page">
+    <p>
+      Before we go ahead… <br><br>
+      Can I ask you something, Motu? 💙🥺
+    </p>
+    <button onclick="nextPage()">Okay, ask me 💭</button>
+    <button onclick="nextPage()">Hmm 😒</button>
+  </div>
+
+  <!-- Page 3 -->
+  <div class="page">
+    <p>
+      I hurt you. <br>
+      I know that, Guddu ❤️ <br><br>
+      And I won’t run from this truth. <br>
+      My heart has been screaming one thing since then…
+    </p>
+    <button onclick="nextPage()">What is it? 🥺</button>
+  </div>
+
+  <!-- Page 4 -->
+  <div class="page">
+    <p>
+      Be honest with me, Baby ❤️ <br><br>
+      Do you think I ever stopped loving you? 🥹
+    </p>
+    <button onclick="wrongAnswer()">Yes, you did ❌</button>
+    <button onclick="rightAnswer()">No… never 💗</button>
+  </div>
+
+  <!-- Page 5 -->
+  <div class="page">
+    <p id="responseText"></p>
+    <button onclick="nextPage()">Continue 🫶</button>
+  </div>
+
+  <!-- Page 6 -->
+  <div class="page">
+    <p>
+      Okay… real question now 😶‍🌫️ <br><br>
+      Will you forgive this stupid boy <br>
+      who messed up but always loved you? 🥺👉👈
+    </p>
+    <button onclick="forgive('no')">No 😤</button>
+    <button onclick="forgive('maybe')">Maybe 🥺</button>
+    <button onclick="forgive('yes')">Yes 💞</button>
+  </div>
+
+  <!-- Page 7 -->
+  <div class="page">
+    <p id="forgiveText"></p>
+    <button onclick="nextPage()">One last thing… 💖</button>
+  </div>
+
+  <!-- Page 8 -->
+  <div class="page">
+    <p>
+      Because look at you… 🥹💗 <br>
+      How can anyone not fall for you again and again?
+    </p>
+    <img src="images/her.jpg" alt="My Love">
+    <button onclick="nextPage()">Final words 🤍</button>
+  </div>
+
+  <!-- Page 9 -->
+  <div class="page">
+    <p>
+      I won’t rush you. <br>
+      I won’t force you. <br><br>
+      I just want you to know… <br>
+      I choose you. <br>
+      I always loved you. <br>
+      And I still do. ❤️
+    </p>
+  </div>
+
+  <script>
+    let currentPage = 0;
+    const pages = document.querySelectorAll('.page');
+
+    function nextPage() {
+      pages[currentPage].classList.remove('active');
+      currentPage++;
+      pages[currentPage].classList.add('active');
+    }
+
+    function wrongAnswer() {
+      document.getElementById("responseText").innerText =
+        "Even if you think that… my heart knows the truth 🥹❤️";
+      nextPage();
+    }
+
+    function rightAnswer() {
+      document.getElementById("responseText").innerText =
+        "I knew it… because I always loved you 😭💗";
+      nextPage();
+    }
+
+    function forgive(choice) {
+      let text = "";
+      if (choice === "no") {
+        text = "Okay… I’ll keep trying forever. You’re worth it 🫂❤️";
+      } else if (choice === "maybe") {
+        text = "I’ll wait. No pressure. Just love 🕊️💗";
+      } else {
+        text = "Thank you… I promise to be better, always 😭💞";
+      }
+      document.getElementById("forgiveText").innerText = text;
+      nextPage();
+    }
+  </script>
+
+</body>
+</html>
